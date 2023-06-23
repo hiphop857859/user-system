@@ -1,0 +1,11 @@
+config:
+  target: "http://localhost:5000/api/"
+  phases:
+    - duration: 60
+      arrivalRate: 20
+scenarios:
+  - flow:
+      - get:
+          url: "/cms/staff/list-event"
+          headers : "U2FsdGVkX19xASK9K9ss0g+n2dhPVKuJ01LKK7dARhgjs4k+CKIhoCjwRUxBZxSUnjOiLQj3R6tKiya9Ig1ElxfAEgcaw+P7uzzYlqxxV+zf6ZD8bb0npfC7SIhC4UdF2wP+9JlKN4n/4A5R7dDrDg=="
+            

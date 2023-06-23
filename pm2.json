@@ -1,0 +1,31 @@
+{
+    "apps": [
+        {
+            "exec_mode": "fork_mode",
+            "script": "./dist1/index.js",
+            "name": "ACB-USER-System - 1",
+            "node_args": [
+                "--max-old-space-size=1768"
+            ],
+            "env": {
+                "SERVER_PORT": 5100,
+                "NODE_ENV": "production",
+                "NODE_CRONJOB" : "RUN_CRONJOB",
+                "SYNC_USER" : "SYNC_USER"
+            }
+        },
+        {
+            "exec_mode": "fork_mode",
+            "script": "./dist2/index.js",
+            "name": "ACB-USER-System - 2",
+            "node_args": [
+                "--max-old-space-size=1768"
+            ],
+            "env": {
+                "SERVER_PORT": 5101,
+                "NODE_ENV": "production",
+                "NODE_CRONJOB" : "DONT_RUN_CRONJOB"
+            }
+        }
+    ]
+}

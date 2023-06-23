@@ -1,0 +1,2477 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    { "url": "http://example.com", "description": "", "variables": {} }
+  ],
+  "info": {
+    "version": "86ab7d87-f57c-468d-85c2-11a2fe030de4",
+    "title": "ACB Event - Kha",
+    "description": "",
+    "termsOfService": "",
+    "contact": {},
+    "license": { "name": "" }
+  },
+  "paths": {
+    "/user/create": {
+      "post": {
+        "summary": "Create",
+        "operationId": "Create",
+        "parameters": [{ "$ref": "#/components/parameters/api-token" }],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "example": {
+                  "name": "Nguyễn Văn 233 Thi",
+                  "email": "test2145@gmail.com",
+                  "phone": "0947883647",
+                  "password": "12345678",
+                  "role": 1
+                }
+              },
+              "example": "{\r\n    \"name\": \"Nguyễn Văn 233 Thi\",\r\n    \"email\": \"test2145@gmail.com\",\r\n    \"phone\": \"0947883647\",\r\n    \"password\": \"12345678\",\r\n    \"role\" : 1\r\n}"
+            }
+          }
+        },
+        "tags": ["User"]
+      }
+    },
+    "/user/update/1": {
+      "put": {
+        "summary": "update",
+        "operationId": "update",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "update",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": { "code": 1, "data": 1, "message": "ok" }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "example": {
+                  "name": "Nguyễn Văn Thii111122222",
+                  "email": "test313@gmail.com",
+                  "phone": "0947883640",
+                  "password": "",
+                  "role": 1
+                }
+              },
+              "example": "{\r\n    \"name\": \"Nguyễn Văn Thii111122222\",\r\n    \"email\": \"test313@gmail.com\",\r\n    \"phone\": \"0947883640\",\r\n    \"password\": \"\",\r\n    \"role\" : 1\r\n}"
+            }
+          }
+        },
+        "tags": ["User"]
+      }
+    },
+    "/user/delete/2": {
+      "delete": {
+        "summary": "delete",
+        "operationId": "delete",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token}}" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "tags": ["User"]
+      }
+    },
+    "/user/detail/2": {
+      "get": {
+        "summary": "detail",
+        "operationId": "detail",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "detail",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "id": 2,
+                    "name": "Nguyễn văn Ab22",
+                    "phone": "0947883647",
+                    "roles": "[]",
+                    "email": "test1@gmail.com"
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["User"]
+      }
+    },
+    "/user/list": {
+      "get": {
+        "summary": "List",
+        "operationId": "List",
+        "parameters": [
+          { "$ref": "#/components/parameters/page" },
+          { "$ref": "#/components/parameters/limit" },
+          { "$ref": "#/components/parameters/search" },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["User"]
+      }
+    },
+    "/user/export-point": {
+      "post": {
+        "summary": "Export point",
+        "operationId": "Exportpoint",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": { "type": "string", "example": { "eventID": 1 } },
+              "example": "{\r\n    \"eventID\": 1\r\n}"
+            }
+          }
+        },
+        "tags": ["User"]
+      }
+    },
+    "/staff/login": {
+      "post": {
+        "summary": "Login",
+        "description": "## Input\n    \n## Output",
+        "operationId": "Login",
+        "parameters": [{ "$ref": "#/components/parameters/Content-Type" }],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "requestBody": {
+          "description": "## Input\n    \n## Output",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "example": {
+                  "email": "admin@wejelly.com",
+                  "password": "12345678"
+                }
+              },
+              "example": "{\n    \"email\": \"admin@wejelly.com\",\n    \"password\": \"12345678\"\n}\n"
+            }
+          }
+        },
+        "tags": ["Staff"]
+      }
+    },
+    "/noti-user/create-notification": {
+      "post": {
+        "summary": "Create",
+        "description": "Permission: CREATE_NOTI",
+        "operationId": "Create0",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "description": "Permission: CREATE_NOTI",
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "example": {
+                  "users": [1],
+                  "type": "NOTI_USER_GLOBAL",
+                  "title": "Thông báo GLOBAL và test socket",
+                  "content": "Đây là nội dung",
+                  "isGlobal": true
+                }
+              },
+              "example": "{\r\n    \"users\": [1],\r\n    \"type\": \"NOTI_USER_GLOBAL\",\r\n    \"title\": \"Thông báo GLOBAL và test socket\",\r\n    \"content\": \"Đây là nội dung\",\r\n    \"isGlobal\": true\r\n}"
+            }
+          }
+        },
+        "tags": ["User Noti"]
+      }
+    },
+    "/noti-user/list-notification": {
+      "get": {
+        "summary": "List",
+        "operationId": "List1",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["User Noti"]
+      }
+    },
+    "/noti-user/delete-notification/18": {
+      "delete": {
+        "summary": "Delete",
+        "description": "Permission: DELETE_NOTI",
+        "operationId": "Delete",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["User Noti"]
+      }
+    },
+    "/dashboard/top-check-in-session": {
+      "get": {
+        "summary": "Top checkin session",
+        "operationId": "Topcheckinsession",
+        "parameters": [
+          { "$ref": "#/components/parameters/eventId" },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Dashboard"]
+      }
+    },
+    "/dashboard/top-check-in-type-session": {
+      "get": {
+        "summary": "Top checkin type session",
+        "operationId": "Topcheckintypesession",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Dashboard"]
+      }
+    },
+    "/dashboard/top-vote-session": {
+      "get": {
+        "summary": "Top vote session",
+        "operationId": "Topvotesession",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Dashboard"]
+      }
+    },
+    "/dashboard/summary": {
+      "get": {
+        "summary": "Summary",
+        "operationId": "Summary",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Dashboard"]
+      }
+    },
+    "/event/import-in-out": {
+      "post": {
+        "summary": "ImportInOut",
+        "operationId": "ImportInOut",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": ["file", "eventID"],
+                "properties": {
+                  "file": { "type": "string", "format": "binary" },
+                  "eventID": { "type": "string", "example": "2" }
+                }
+              },
+              "example": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/Users/caovnhkha/Desktop/ImportInOut.xlsx"
+                },
+                { "key": "eventID", "value": "2", "type": "text" }
+              ]
+            }
+          }
+        },
+        "tags": ["Event"]
+      }
+    },
+    "/event/import-minus-point": {
+      "post": {
+        "summary": "Import Minus Point",
+        "operationId": "ImportMinusPoint",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": ["file", "eventID"],
+                "properties": {
+                  "file": { "type": "string", "format": "binary" },
+                  "eventID": { "type": "string", "example": "1" }
+                }
+              },
+              "example": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/Users/caovnhkha/Desktop/ImportMinusPoint.xlsx"
+                },
+                { "key": "eventID", "value": "1", "type": "text" }
+              ]
+            }
+          }
+        },
+        "tags": ["Event"]
+      }
+    },
+    "/event/export-all-in-out": {
+      "get": {
+        "summary": "Export All InOut",
+        "operationId": "ExportAllInOut",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Event"]
+      }
+    },
+    "/session/export-point-giving/1": {
+      "get": {
+        "summary": "Export Session Point Giving",
+        "operationId": "ExportSessionPointGiving",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Session"]
+      }
+    },
+    "/session/export-check-in-time/1": {
+      "get": {
+        "summary": "Export Session Check In",
+        "operationId": "ExportSessionCheckIn",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Session"]
+      }
+    },
+    "/session/count-check-in/248": {
+      "get": {
+        "summary": "Count Check In",
+        "operationId": "CountCheckIn",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Session"]
+      }
+    },
+    "/history-point/export/1": {
+      "get": {
+        "summary": "Export",
+        "operationId": "Export",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": "CREATE_SUCCESS",
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["History Point"]
+      }
+    },
+    "/category/create": {
+      "post": {
+        "summary": "Create",
+        "operationId": "Create0",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "example": {
+                  "name": "Kiến thức cơ bản",
+                  "content": "",
+                  "eventID": 7,
+                  "color": "FF3F3F"
+                }
+              },
+              "example": "{\r\n    \"name\": \"Kiến thức cơ bản\",\r\n    \"content\": \"\",\r\n    \"eventID\": 7,\r\n    \"color\": \"FF3F3F\"\r\n}"
+            }
+          }
+        },
+        "tags": ["Category"]
+      }
+    },
+    "/category/update/14": {
+      "put": {
+        "summary": "Update",
+        "operationId": "Update",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "example": {
+                  "name": "Kiến thức căn bản",
+                  "content": "",
+                  "isPublic": false,
+                  "color": "DFD55B"
+                }
+              },
+              "example": "{\r\n    \"name\": \"Kiến thức căn bản\",\r\n    \"content\": \"\",\r\n    \"isPublic\": false,\r\n    \"color\": \"DFD55B\"\r\n}"
+            }
+          }
+        },
+        "tags": ["Category"]
+      }
+    },
+    "/category/delete/14": {
+      "delete": {
+        "summary": "Delete",
+        "operationId": "Delete2",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "tags": ["Category"]
+      }
+    },
+    "/category/list": {
+      "get": {
+        "summary": "List",
+        "operationId": "List3",
+        "parameters": [
+          { "$ref": "#/components/parameters/eventID" },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "tags": ["Category"]
+      }
+    },
+    "/category/detail/14": {
+      "get": {
+        "summary": "Detail",
+        "operationId": "Detail",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_staff}}" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "tags": ["Category"]
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Login",
+        "description": "## Input\n    \n## Output",
+        "operationId": "Login0",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "application/json" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "requestBody": {
+          "description": "## Input\n    \n## Output",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "example": {
+                  "type": "MICROSOFT",
+                  "email": "thi.bui@wejelly.com",
+                  "password": "12345678",
+                  "accountID": "102518978968506141298",
+                  "fullName": "Thanh Thi Bùi",
+                  "avatar": "hinh.jpg",
+                  "accessToken": "eyJ0eXAiOiJKV1QiLCJub25jZSI6InFXUmFJZGlWeUh5M0c1bV80cEQtVXZINVdVVWZrTWZMMXRQTDFnOUpxRmsiLCJhbGciOiJSUzI1NiIsIng1dCI6IjVPZjlQNUY5Z0NDd0NtRjJCT0hIeEREUS1EayIsImtpZCI6IjVPZjlQNUY5Z0NDd0NtRjJCT0hIeEREUS1EayJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8wMTM2Y2M0YS0yMTUzLTRiM2ItYWFhNS0zNjk2MWNiMWQzZjEvIiwiaWF0IjoxNjEwNDM3NjIxLCJuYmYiOjE2MTA0Mzc2MjEsImV4cCI6MTYxMDQ0MTUyMSwiYWNjdCI6MCwiYWNyIjoiMSIsImFjcnMiOlsidXJuOnVzZXI6cmVnaXN0ZXJzZWN1cml0eWluZm8iLCJ1cm46bWljcm9zb2Z0OnJlcTEiLCJ1cm46bWljcm9zb2Z0OnJlcTIiLCJ1cm46bWljcm9zb2Z0OnJlcTMiLCJjMSIsImMyIiwiYzMiLCJjNCIsImM1IiwiYzYiLCJjNyIsImM4IiwiYzkiLCJjMTAiLCJjMTEiLCJjMTIiLCJjMTMiLCJjMTQiLCJjMTUiLCJjMTYiLCJjMTciLCJjMTgiLCJjMTkiLCJjMjAiLCJjMjEiLCJjMjIiLCJjMjMiLCJjMjQiLCJjMjUiXSwiYWlvIjoiQVNRQTIvOFNBQUFBdWN4Y050V25JWVg1UDdlMXZNU0lhbmkvbEUweml6cVYrQjVvOHRybHBjST0iLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6ImFjYi1ldmVudC0yMDIxIiwiYXBwaWQiOiI3Yjk5MWY0YS02ZTlkLTRmMjItOTllYy0wZGE0ZTE2OGY0M2QiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IkLDuWkiLCJnaXZlbl9uYW1lIjoiVGhhbmggVGhpIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiMTcxLjI0OS4yMzQuMjAzIiwibmFtZSI6IlRoYW5oIFRoaSBCw7lpIiwib2lkIjoiZDI5NDlmNDctZTRmZi00ZWRkLTgwNDAtMzNmNTVkNzM1NjQzIiwicGxhdGYiOiIyIiwicHVpZCI6IjEwMDMyMDAwQ0M5MDZGRkMiLCJyaCI6IjAuQUFBQVNzdzJBVk1oTzB1cXBUYVdITEhUOFVvZm1YdWRiaUpQbWV3TnBPRm85RDFXQUljLiIsInNjcCI6Im9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCBlbWFpbCIsInNpZ25pbl9zdGF0ZSI6WyJrbXNpIl0sInN1YiI6IktGeklHZHdUckREQ3NrLUZwa3NCVmZ5YThSRG8wZTNuckNvYVFINzlfQVUiLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiQVMiLCJ0aWQiOiIwMTM2Y2M0YS0yMTUzLTRiM2ItYWFhNS0zNjk2MWNiMWQzZjEiLCJ1bmlxdWVfbmFtZSI6InRoaS5idWlAd2VqZWxseS5jb20iLCJ1cG4iOiJ0aGkuYnVpQHdlamVsbHkuY29tIiwidXRpIjoiVmpYOWhWTjRxa210OHJFYkliV0ZBQSIsInZlciI6IjEuMCIsInhtc19zdCI6eyJzdWIiOiItZ204X281Tk03Z2psWmoyOUNBd0l1MVpjd1lHSFJVemJDTjM2bTVTeXlBIn0sInhtc190Y2R0IjoxNTkzMTU1MzI4fQ.ZvB6nS9Y_-WUskohCLfMugD0GokcHDprZAhecMM7tQMz3n4Q7jBa0a_2v6L2oj41TdOBe2gLa35pLnwae9Ro-FCzAaBhOVWgaIvqURc8UqGTPIjmrrl5AvHHaxNIfGlUf0jmVd0TUnXM0CUMpzygogz8-_Vkl0ddihUo5cwfNAxiYjPQmgksob6THBYt7cZgJyerQvKCthMJO0ScbD1vWBG9edjAyvp8RE5ScTGbUUFmIQ_wxKmE7LAJlbR2h-VEH-q-RHQCfCM-XOMHimL8hYrYLSTUcho5ztsXTdnBzqR1HQS96sw9rhrd9ulaBLwuAflBg0BtF8AeE9Hlt74sig"
+                }
+              },
+              "example": "{\n    \"type\": \"MICROSOFT\",\n    \"email\": \"thi.bui@wejelly.com\",\n    \"password\": \"12345678\",\n    \"accountID\": \"102518978968506141298\",\n    \"fullName\": \"Thanh Thi Bùi\",\n    \"avatar\": \"hinh.jpg\",\n    \"accessToken\": \"eyJ0eXAiOiJKV1QiLCJub25jZSI6InFXUmFJZGlWeUh5M0c1bV80cEQtVXZINVdVVWZrTWZMMXRQTDFnOUpxRmsiLCJhbGciOiJSUzI1NiIsIng1dCI6IjVPZjlQNUY5Z0NDd0NtRjJCT0hIeEREUS1EayIsImtpZCI6IjVPZjlQNUY5Z0NDd0NtRjJCT0hIeEREUS1EayJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8wMTM2Y2M0YS0yMTUzLTRiM2ItYWFhNS0zNjk2MWNiMWQzZjEvIiwiaWF0IjoxNjEwNDM3NjIxLCJuYmYiOjE2MTA0Mzc2MjEsImV4cCI6MTYxMDQ0MTUyMSwiYWNjdCI6MCwiYWNyIjoiMSIsImFjcnMiOlsidXJuOnVzZXI6cmVnaXN0ZXJzZWN1cml0eWluZm8iLCJ1cm46bWljcm9zb2Z0OnJlcTEiLCJ1cm46bWljcm9zb2Z0OnJlcTIiLCJ1cm46bWljcm9zb2Z0OnJlcTMiLCJjMSIsImMyIiwiYzMiLCJjNCIsImM1IiwiYzYiLCJjNyIsImM4IiwiYzkiLCJjMTAiLCJjMTEiLCJjMTIiLCJjMTMiLCJjMTQiLCJjMTUiLCJjMTYiLCJjMTciLCJjMTgiLCJjMTkiLCJjMjAiLCJjMjEiLCJjMjIiLCJjMjMiLCJjMjQiLCJjMjUiXSwiYWlvIjoiQVNRQTIvOFNBQUFBdWN4Y050V25JWVg1UDdlMXZNU0lhbmkvbEUweml6cVYrQjVvOHRybHBjST0iLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6ImFjYi1ldmVudC0yMDIxIiwiYXBwaWQiOiI3Yjk5MWY0YS02ZTlkLTRmMjItOTllYy0wZGE0ZTE2OGY0M2QiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IkLDuWkiLCJnaXZlbl9uYW1lIjoiVGhhbmggVGhpIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiMTcxLjI0OS4yMzQuMjAzIiwibmFtZSI6IlRoYW5oIFRoaSBCw7lpIiwib2lkIjoiZDI5NDlmNDctZTRmZi00ZWRkLTgwNDAtMzNmNTVkNzM1NjQzIiwicGxhdGYiOiIyIiwicHVpZCI6IjEwMDMyMDAwQ0M5MDZGRkMiLCJyaCI6IjAuQUFBQVNzdzJBVk1oTzB1cXBUYVdITEhUOFVvZm1YdWRiaUpQbWV3TnBPRm85RDFXQUljLiIsInNjcCI6Im9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCBlbWFpbCIsInNpZ25pbl9zdGF0ZSI6WyJrbXNpIl0sInN1YiI6IktGeklHZHdUckREQ3NrLUZwa3NCVmZ5YThSRG8wZTNuckNvYVFINzlfQVUiLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiQVMiLCJ0aWQiOiIwMTM2Y2M0YS0yMTUzLTRiM2ItYWFhNS0zNjk2MWNiMWQzZjEiLCJ1bmlxdWVfbmFtZSI6InRoaS5idWlAd2VqZWxseS5jb20iLCJ1cG4iOiJ0aGkuYnVpQHdlamVsbHkuY29tIiwidXRpIjoiVmpYOWhWTjRxa210OHJFYkliV0ZBQSIsInZlciI6IjEuMCIsInhtc19zdCI6eyJzdWIiOiItZ204X281Tk03Z2psWmoyOUNBd0l1MVpjd1lHSFJVemJDTjM2bTVTeXlBIn0sInhtc190Y2R0IjoxNTkzMTU1MzI4fQ.ZvB6nS9Y_-WUskohCLfMugD0GokcHDprZAhecMM7tQMz3n4Q7jBa0a_2v6L2oj41TdOBe2gLa35pLnwae9Ro-FCzAaBhOVWgaIvqURc8UqGTPIjmrrl5AvHHaxNIfGlUf0jmVd0TUnXM0CUMpzygogz8-_Vkl0ddihUo5cwfNAxiYjPQmgksob6THBYt7cZgJyerQvKCthMJO0ScbD1vWBG9edjAyvp8RE5ScTGbUUFmIQ_wxKmE7LAJlbR2h-VEH-q-RHQCfCM-XOMHimL8hYrYLSTUcho5ztsXTdnBzqR1HQS96sw9rhrd9ulaBLwuAflBg0BtF8AeE9Hlt74sig\"\n}\n"
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/currenUser": {
+      "get": {
+        "summary": "currentUser",
+        "operationId": "currentUser",
+        "parameters": [
+          {
+            "name": "eventID",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "detail",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "id": 2,
+                    "name": "Nguyễn văn Ab22",
+                    "phone": "0947883647",
+                    "roles": "[]",
+                    "email": "test1@gmail.com"
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/list": {
+      "get": {
+        "summary": "List",
+        "operationId": "List0",
+        "parameters": [
+          {
+            "name": "eventID",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "tags": []
+      }
+    },
+    "/detail/1": {
+      "get": {
+        "summary": "Detail",
+        "operationId": "Detail1",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/detail/2": {
+      "get": {
+        "summary": "Detail",
+        "operationId": "Detail1",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/list-time-slot": {
+      "get": {
+        "summary": "List Time Slot",
+        "operationId": "ListTimeSlot",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "string", "example": "sessi" }
+          },
+          {
+            "name": "typeSessionId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "string", "example": "[1,2]" }
+          },
+          {
+            "name": "boothId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "string", "example": "[2]" }
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "string", "example": "[3]" }
+          },
+          {
+            "name": "isLivestream",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "string", "example": "TRUE" }
+          },
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          { "$ref": "#/components/parameters/date" },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "tags": []
+      }
+    },
+    "/list-by-time-slot": {
+      "get": {
+        "summary": "List By Time Slot",
+        "operationId": "ListByTimeSlot",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "string", "example": "sessi" }
+          },
+          {
+            "name": "typeSessionId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "string", "example": "[1,2]" }
+          },
+          {
+            "name": "boothId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "string", "example": "[2]" }
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "string", "example": "[3]" }
+          },
+          {
+            "name": "isLivestream",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "string", "example": "TRUE" }
+          },
+          { "$ref": "#/components/parameters/time" },
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "tags": []
+      }
+    },
+    "/list-live-stream-happening": {
+      "get": {
+        "summary": "List Livestream Happening",
+        "operationId": "ListLivestreamHappening",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/detail/18": {
+      "get": {
+        "summary": "Detail",
+        "operationId": "Detail4",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/bookmark/247": {
+      "post": {
+        "summary": "Bookmark",
+        "operationId": "Bookmark",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": { "type": "string", "example": "" },
+              "example": ""
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/checkIn": {
+      "post": {
+        "summary": "CheckIn",
+        "description": "###\nid: id cua Session\n###",
+        "operationId": "CheckIn",
+        "parameters": [
+          { "$ref": "#/components/parameters/checkineventID" },
+          { "$ref": "#/components/parameters/sessionID" },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "description": "###\nid: id cua Session\n###",
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": { "type": "string", "example": { "id": 29 } },
+              "example": "{\n    \"id\": 29\n}"
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/my-mission": {
+      "get": {
+        "summary": "My Mission",
+        "operationId": "MyMission",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/pointGiving": {
+      "post": {
+        "summary": "Give Point",
+        "description": "###\nid: id cua Session\n###",
+        "operationId": "GivePoint",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "description": "###\nid: id cua Session\n###",
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "example": { "id": 23, "point": 50 }
+              },
+              "example": "{\n    \"id\": 23,\n    \"point\": 50\n}"
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/my-activity": {
+      "get": {
+        "summary": "My Activity",
+        "operationId": "MyActivity",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/list/1": {},
+    "/get-my-notification": {
+      "get": {
+        "summary": "List",
+        "description": "Permission: READ_NOTI",
+        "operationId": "List0",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/mark-read": {
+      "put": {
+        "summary": "Mark read",
+        "description": "- type 2 loại:\n + MARK_READ_ONE_NOTI: đánh dấu đã đọc 1 noti\n + MARK_READ_ALL_NOTI: đánh dấu đã đọc tất cả noti",
+        "operationId": "Markread",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "description": "- type 2 loại:\n + MARK_READ_ONE_NOTI: đánh dấu đã đọc 1 noti\n + MARK_READ_ALL_NOTI: đánh dấu đã đọc tất cả noti",
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "example": { "notiId": 29, "type": "MARK_READ_ALL_NOTI" }
+              },
+              "example": "{\n    \"notiId\": 29,\n    \"type\": \"MARK_READ_ALL_NOTI\"\n}"
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/count-unread-noti": {
+      "get": {
+        "summary": "Count unread noti",
+        "operationId": "Countunreadnoti",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": {
+                    "previousPage": 1,
+                    "currentPage": 2,
+                    "nextPage": 3,
+                    "total": 3,
+                    "limit": 1,
+                    "data": [
+                      {
+                        "id": 2,
+                        "name": "Nguyễn văn Ab",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test1@gmail.com",
+                        "date": "21-11-2020 21:46 PM"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Nguyễn văn cccc",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test13@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Nguyễn văn ggggg",
+                        "phone": "0947883647",
+                        "roles": "[]",
+                        "email": "test213@gmail.com",
+                        "date": "21-11-2020 21:47 PM"
+                      }
+                    ]
+                  },
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": []
+      }
+    },
+    "/file": {
+      "post": {
+        "summary": "upload",
+        "operationId": "upload",
+        "parameters": [],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": ["file"],
+                "properties": {
+                  "file": { "type": "string", "format": "binary" }
+                }
+              },
+              "example": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/Users/caovnhkha/Desktop/z2250697763474_add5e560a98157425af35567ba71297e.jpg"
+                }
+              ]
+            }
+          }
+        },
+        "tags": ["upload"]
+      }
+    },
+    "/list-date-time": {
+      "get": {
+        "summary": "List date time",
+        "operationId": "Listdatetime",
+        "parameters": [
+          {
+            "name": "eventID",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List date time",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": [
+                    {
+                      "date": "2021-01-21T17:00:00.000Z",
+                      "timeslot": [
+                        "2021-01-22T07:00:00.000Z",
+                        "2021-01-22T10:00:00.000Z"
+                      ]
+                    },
+                    {
+                      "date": "2021-01-22T17:00:00.000Z",
+                      "timeslot": ["2021-01-23T09:00:00.000Z"]
+                    }
+                  ],
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Calendar"]
+      }
+    },
+    "/list-by-date": {
+      "get": {
+        "summary": "List by date",
+        "operationId": "Listbydate",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "2021-01-21T17:00:00.000Z"
+            }
+          },
+          {
+            "name": "eventID",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List by date",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": { "$ref": "#/components/schemas/200" },
+                "example": {
+                  "code": 1,
+                  "data": [
+                    {
+                      "id": 245,
+                      "eventID": 1,
+                      "name": "Chủ đề: \"Con đường ta đi\"",
+                      "startTime": "2021-01-22T07:50:00.000Z",
+                      "endTime": "2021-01-22T08:30:00.000Z",
+                      "content": "Collaboration Stage",
+                      "description": "Collaboration Stage",
+                      "isLivestream": false
+                    },
+                    {
+                      "id": 246,
+                      "eventID": 1,
+                      "name": "Chủ đề: \"Phục vụ Khách hàng giàu có\"",
+                      "startTime": "2021-01-22T07:50:00.000Z",
+                      "endTime": "2021-01-22T09:30:00.000Z",
+                      "content": "Innovation Stage",
+                      "description": "Innovation Stage",
+                      "isLivestream": false
+                    },
+                    {
+                      "id": 248,
+                      "eventID": 1,
+                      "name": "Mô hình DSOC và Cách thức phối hợp hiệu quả",
+                      "startTime": "2021-01-22T10:30:00.000Z",
+                      "endTime": "2021-01-22T11:00:00.000Z",
+                      "content": "Performance, Định nghĩa khách hàng, Customer First",
+                      "description": "Performance, Định nghĩa khách hàng, Customer First",
+                      "isLivestream": false
+                    }
+                  ],
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Calendar"]
+      }
+    },
+    "/detail/8": {
+      "get": {
+        "summary": "Detail",
+        "operationId": "Detail1",
+        "parameters": [
+          {
+            "name": "api-token",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": { "type": "string", "example": "{{access_token_user}}" }
+          }
+        ],
+        "responses": { "200": { "description": "", "headers": {} } },
+        "tags": []
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "api-token": {
+        "name": "api-token",
+        "in": "header",
+        "required": true,
+        "style": "simple",
+        "schema": { "type": "string", "example": "{{access_token}}" }
+      },
+      "page": {
+        "name": "page",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "number" }
+      },
+      "limit": {
+        "name": "limit",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "number" }
+      },
+      "search": {
+        "name": "search",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "number" }
+      },
+      "Content-Type": {
+        "name": "Content-Type",
+        "in": "header",
+        "required": true,
+        "style": "simple",
+        "schema": { "type": "string", "example": "application/json" }
+      },
+      "eventId": {
+        "name": "eventId",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "number" }
+      },
+      "eventID": {
+        "name": "eventID",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "number" }
+      },
+      "type": {
+        "name": "type",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "string", "example": "HAPPENED" }
+      },
+      "sessionId": {
+        "name": "sessionId",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "number" }
+      },
+      "typeSessionId": {
+        "name": "typeSessionId",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "string", "example": "[1,2]" }
+      },
+      "boothId": {
+        "name": "boothId",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "string", "example": "[2]" }
+      },
+      "tags": {
+        "name": "tags",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "string", "example": "[3]" }
+      },
+      "isLivestream": {
+        "name": "isLivestream",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "string", "example": "TRUE" }
+      },
+      "date": {
+        "name": "date",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "string", "example": "[\"2021-01-22\"]" }
+      },
+      "time": {
+        "name": "time",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "string", "example": "2021-01-22T11:00:00.000Z" }
+      },
+      "checkineventID": {
+        "name": "checkineventID",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "number" }
+      },
+      "sessionID": {
+        "name": "sessionID",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "number" }
+      },
+      "isTeam": {
+        "name": "isTeam",
+        "in": "query",
+        "required": true,
+        "style": "form",
+        "schema": { "type": "string", "example": "false" }
+      }
+    },
+    "schemas": {
+      "200": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "integer", "description": "", "default": 1 },
+          "data": {
+            "type": "string",
+            "description": "",
+            "default": "CREATE_SUCCESS"
+          },
+          "message": { "type": "string", "description": "", "default": "ok" }
+        }
+      }
+    }
+  },
+  "security": [],
+  "tags": [],
+  "externalDocs": { "url": "", "description": "" },
+  "warnings": []
+}

@@ -1,0 +1,15 @@
+config:
+  target: "http://35.229.181.161/"
+  socketio:
+    transports: ["websocket"]
+  phases:
+    - duration: 5 # Run scenario for 10 seconds
+      arrivalCount: 500 # Create 20 virtual users per scenario
+scenarios:
+  - engine: "socketio"
+    flow:
+      - emit:
+          channel: "INIT_CONNECTION"
+          data: "SAMSUNG"
+  
+      - think: 5 # do nothing for 5 seconds, then disconnect
